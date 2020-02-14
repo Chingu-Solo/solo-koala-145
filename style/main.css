@@ -112,4 +112,6 @@ input[name="bgColor"]:checked + label {
 
 .card .text {
   align-self: center;
+  word-break: break-all;
+  line-height: 2;
 }
