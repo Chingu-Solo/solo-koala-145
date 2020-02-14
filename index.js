@@ -1,14 +1,17 @@
 let data = [...initialArr];
 
-const searchFont = document.querySelector(".searchFont");
-searchFont.addEventListener("input", e => searchFontByName(e, data, ".articles-res"));
+const searchFontEl = document.querySelector(".searchFont");
+searchFontEl.addEventListener("input", e => searchFontByName(e, data, ".articles-res"));
 
-const typeSmth = document.querySelector(".toolbar-text");
-typeSmth.addEventListener("input", e => typeFontsText(e, data, ".articles-res"));
+const typeSmthEl = document.querySelector(".toolbar-text");
+typeSmthEl.addEventListener("input", e => typeFontsText(e, data, ".articles-res"));
+
+const fontSizeSelectorEl = document.querySelector("#selectFontSize");
+fontSizeSelectorEl.addEventListener("change", e => selectFontSize(e, data, ".articles-res"));
 
 data.forEach(el => createArticleTemplate(el, ".articles-res"));
 
-function createArticleTemplate(item, parentClass) {
+function createArticleTemplate(item, parentClass, textFontSize = `${fontSizeSelectorEl.value}px`) {
   //classStyle, nameStyle, authorStyle, text
   
   const article = document.createElement("article");
@@ -30,6 +33,7 @@ function createArticleTemplate(item, parentClass) {
   
   const p = document.createElement("p");
   p.className = "text";
+  p.style.fontSize = textFontSize;
   p.textContent = item.text;
   
   titleWrapper.appendChild(h2);
@@ -47,6 +51,7 @@ function searchFontByName(event, data, parentClass) {
   const filteredArr = data.filter(e => e.nameStyle.toLowerCase().indexOf(value) >= 0);
   
   removeAllChildren(parentClass);
+  
   filteredArr.forEach(el => createArticleTemplate(el, parentClass));
 }
 
@@ -55,7 +60,19 @@ function typeFontsText(event, data, parentClass) {
   const newArray = data.map(el => Object.assign({}, el, {["text"]: value}));
   
   removeAllChildren(parentClass);
-  newArray.forEach(el => createArticleTemplate(el, parentClass));
+  
+  if(!value) {
+    data.forEach(el => createArticleTemplate(el, parentClass));
+  } else {
+    newArray.forEach(el => createArticleTemplate(el, parentClass));
+  }
+}
+
+function selectFontSize(event, data, parentClass) {
+  const { target: { value }} = event;
+  
+  removeAllChildren(parentClass);
+  data.forEach(el => createArticleTemplate(el, parentClass, `${value}px`));
 }
 
 function removeAllChildren(className) {

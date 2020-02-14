@@ -76,11 +76,6 @@ input[name="bgColor"]:checked + label {
   border: 1px solid red;
 }
 
-
-/*
-
-*/
-
 .articles-res {
   margin: 2rem;
   display: grid;
