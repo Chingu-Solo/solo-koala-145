@@ -1,10 +1,9 @@
-const articlesRes = document.querySelector(".articles-res");
+const searchFont = document.querySelector(".searchFont");
+searchFont.addEventListener("input", searchFontByName);
 
-initialArr.forEach(el => {
-  createArticleTemplate(el, articlesRes);
-});
+initialArr.forEach(el => createArticleTemplate(el, ".articles-res"));
 
-function createArticleTemplate(item, htmlEl) {
+function createArticleTemplate(item, className) {
   //classStyle, nameStyle, authorStyle, text
   
   const article = document.createElement("article");
@@ -34,5 +33,21 @@ function createArticleTemplate(item, htmlEl) {
   article.appendChild(h3);
   article.appendChild(p);
   
-  htmlEl.appendChild(article);
+  const parent = document.querySelector(className);
+  parent.appendChild(article);
+}
+
+function searchFontByName(event) {
+  const { target: { value }} = event;
+  const filteredArr = initialArr.filter(e => e.nameStyle.toLowerCase().indexOf(value) >= 0);
+  
+  removeAllChildren('.articles-res');
+  filteredArr.forEach(el => createArticleTemplate(el, ".articles-res"));
+}
+
+function removeAllChildren(className) {
+  const node = document.querySelector(className);
+  while (node.firstChild) {
+    node.removeChild(node.firstChild);
+  }
 }
