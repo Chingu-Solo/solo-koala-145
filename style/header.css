@@ -1,0 +1,36 @@
+.header {
+  font-size: 1.6rem;
+  border-bottom: 1px solid #dadce0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.header > * {
+  margin: 0 2rem;
+}
+
+.logo {
+  align-self: center;
+  font-size: 2.5rem;
+}
+
+.logo span {
+  font-weight: 600;
+}
+
+.nav {
+  align-self: center;
+  text-transform: uppercase;
+}
+
+.list {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-item {
+  align-self: center;
+  margin-right: 1em;
+}

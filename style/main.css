@@ -1,0 +1,115 @@
+.main {
+  font-size: 1.6rem;
+  padding: 34px 48px;
+}
+
+.toolbar-wrapper {
+  border: 1px solid #dadce0;
+  border-radius: 20px;
+  padding: 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr repeat(4, auto);
+  grid-gap: 20px;
+}
+
+.toolbar-search,
+.toolbar-text,
+.toolbar-fontsize {
+  border-right: 1px solid #dadce0;
+}
+
+.toolbar-search,
+.toolbar-text,
+.toolbar-fontsize,
+.toolbar-changeBg,
+.toolbar-view,
+.toolbar-refresh {
+  align-self: center;
+}
+
+.toolbar-search {
+  position: relative;
+}
+
+.toolbar-search .fa-search {
+  position: absolute;
+}
+
+.toolbar-search input {
+  margin-left: 1.5em;
+}
+
+.searchInput {
+  outline: none;
+  border: none;
+  font-size: inherit;
+  width: 95%;
+}
+
+.toolbar-fontsize select {
+  font-size: inherit;
+  outline: none;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+input[value="black"] + label {
+  background-color: black;
+}
+
+input[name="bgColor"] {
+  display: none;
+}
+
+input[name="bgColor"] + label {
+  display: inline-block;
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  border: 1px solid #dadce0;
+  cursor: pointer;
+}
+
+input[name="bgColor"]:checked + label {
+  border: 1px solid red;
+}
+
+
+/*
+
+*/
+
+.articles-res {
+  margin: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 4rem;
+}
+
+.card {
+  padding-top: 1rem;
+  border-top: 1px solid #dadce0;
+
+  display: grid;
+  grid-auto-rows: auto auto minmax(400px, 1fr);
+}
+
+.card .title-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card .title-wrapper .fa-plus-circle {
+  color: red;
+  cursor: pointer;
+}
+
+.card .author {
+  color: rgba(0, 0, 0, .6);;
+}
+
+.card .text {
+  align-self: center;
+}

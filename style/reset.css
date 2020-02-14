@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.body {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 63px auto 50px;
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link,
+a:active,
+a:visited {
+  color: rgba(0, 0, 0, .6);
+}
+
+a:not(.logo):hover {
+  color: red;
+}
