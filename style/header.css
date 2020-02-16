@@ -1,6 +1,6 @@
 .header {
   font-size: 1.6rem;
-  border-bottom: 1px solid #dadce0;
+  border-bottom: 1px solid var(--border-color);
   display: flex;
   flex-direction: row;
   justify-content: space-between;

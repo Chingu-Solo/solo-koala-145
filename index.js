@@ -9,6 +9,9 @@ typeSmthEl.addEventListener("input", e => typeFontsText(e, data, ".articles-res"
 const fontSizeSelectorEl = document.querySelector("#selectFontSize");
 fontSizeSelectorEl.addEventListener("change", e => selectFontSize(e, data, ".articles-res"));
 
+const radiobgColorBtns = document.querySelectorAll(".toolbar-changeBg input[name='bgColor']");
+radiobgColorBtns.forEach(e => e.addEventListener("change", event => changeBg(event)));
+
 data.forEach(el => createArticleTemplate(el, ".articles-res"));
 
 function createArticleTemplate(item, parentClass, textFontSize = `${fontSizeSelectorEl.value}px`) {
@@ -73,6 +76,20 @@ function selectFontSize(event, data, parentClass) {
   
   removeAllChildren(parentClass);
   data.forEach(el => createArticleTemplate(el, parentClass, `${value}px`));
+}
+
+function changeBg(event) {
+  const { target: { value }} = event;
+  
+  if(value === 'white') {
+    document.documentElement.style.setProperty('--bg-color', '#fff');
+    document.documentElement.style.setProperty('--text-color', '#222');
+    document.documentElement.style.setProperty('--second-text-color', 'rgba(34, 34, 34, .5)');
+  } else {
+    document.documentElement.style.setProperty('--bg-color', '#222');
+    document.documentElement.style.setProperty('--text-color', '#fff');
+    document.documentElement.style.setProperty('--second-text-color', 'rgba(255,255,255, .5)');
+  }
 }
 
 function removeAllChildren(className) {

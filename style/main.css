@@ -4,7 +4,7 @@
 }
 
 .toolbar-wrapper {
-  border: 1px solid #dadce0;
+  border: 1px solid var(--border-color);
   border-radius: 20px;
   padding: 15px;
   display: grid;
@@ -15,7 +15,7 @@
 .toolbar-search,
 .toolbar-text,
 .toolbar-fontsize {
-  border-right: 1px solid #dadce0;
+  border-right: 1px solid var(--border-color);
 }
 
 .toolbar-search,
@@ -44,6 +44,8 @@
   border: none;
   font-size: inherit;
   width: 95%;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 .toolbar-fontsize select {
@@ -52,10 +54,15 @@
   border: none;
   background-color: inherit;
   cursor: pointer;
+  color: var(--text-color);
 }
 
 input[value="black"] + label {
-  background-color: black;
+  background-color: var(--black-color);
+}
+
+input[value="white"] + label {
+  background-color: var(--white-color);
 }
 
 input[name="bgColor"] {
@@ -68,12 +75,12 @@ input[name="bgColor"] + label {
   width: 1.5rem;
   height: 1.5rem;
   border-radius: 50%;
-  border: 1px solid #dadce0;
+  border: 1px solid var(--border-color);
   cursor: pointer;
 }
 
 input[name="bgColor"]:checked + label {
-  border: 1px solid red;
+  border: 1px solid var(--danger-color);
 }
 
 .articles-res {
@@ -85,7 +92,7 @@ input[name="bgColor"]:checked + label {
 
 .card {
   padding-top: 1rem;
-  border-top: 1px solid #dadce0;
+  border-top: 1px solid var(--border-color);
 
   display: grid;
   grid-auto-rows: auto auto minmax(400px, 1fr);
@@ -97,12 +104,12 @@ input[name="bgColor"]:checked + label {
 }
 
 .card .title-wrapper .fa-plus-circle {
-  color: red;
+  color: var(--danger-color);
   cursor: pointer;
 }
 
 .card .author {
-  color: rgba(0, 0, 0, .6);;
+  color: var(--second-text-color);
 }
 
 .card .text {

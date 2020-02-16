@@ -13,18 +13,21 @@ html {
   display: grid;
   grid-template-rows: 63px auto 50px;
   font-family: sans-serif;
+
+  color: var(--text-color);
+  background-color: var(--bg-color);
 }
 
 a {
   text-decoration: none;
-}
-
-a:link,
-a:active,
-a:visited {
-  color: rgba(0, 0, 0, .6);
+  color: var(--danger-color);
 }
 
 a:not(.logo):hover {
-  color: red;
+  color: var(--text-color);
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: var(--text-color);
+  opacity: 1; /* Firefox */
 }

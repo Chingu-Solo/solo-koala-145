@@ -1,0 +1,9 @@
+:root {
+  --bg-color: #fff;
+  --text-color: rgb(34, 34, 34);
+  --second-text-color: rgba(34, 34, 34, .5);
+  --border-color: #dadce0;
+  --black-color: #222;
+  --white-color: #fff;
+  --danger-color: red;
+}

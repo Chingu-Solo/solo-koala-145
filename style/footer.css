@@ -1,6 +1,6 @@
 .footer {
   font-size: 1.6rem;
-  border-top: 1px solid #dadce0;
+  border-top: 1px solid var(--border-color);
   display: flex;
   justify-content: center;
   align-items: center;
