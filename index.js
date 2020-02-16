@@ -1,4 +1,4 @@
-let data = [...initialArr];
+let data = [ ...initialArr ];
 
 const searchFontEl = document.querySelector(".searchFont");
 searchFontEl.addEventListener("input", e => searchFontByName(e, data, ".articles-res"));
@@ -11,6 +11,9 @@ fontSizeSelectorEl.addEventListener("change", e => selectFontSize(e, data, ".art
 
 const radiobgColorBtns = document.querySelectorAll(".toolbar-changeBg input[name='bgColor']");
 radiobgColorBtns.forEach(e => e.addEventListener("change", event => changeBg(event)));
+
+const checkboxView = document.querySelector(".toolbar-view input[name='view']");
+checkboxView.addEventListener("change", event => changeView(event));
 
 data.forEach(el => createArticleTemplate(el, ".articles-res"));
 
@@ -50,7 +53,7 @@ function createArticleTemplate(item, parentClass, textFontSize = `${fontSizeSele
 }
 
 function searchFontByName(event, data, parentClass) {
-  const { target: { value }} = event;
+  const { target: { value } } = event;
   const filteredArr = data.filter(e => e.nameStyle.toLowerCase().indexOf(value) >= 0);
   
   removeAllChildren(parentClass);
@@ -59,12 +62,12 @@ function searchFontByName(event, data, parentClass) {
 }
 
 function typeFontsText(event, data, parentClass) {
-  const { target: { value }} = event;
-  const newArray = data.map(el => Object.assign({}, el, {["text"]: value}));
+  const { target: { value } } = event;
+  const newArray = data.map(el => Object.assign({}, el, { ["text"]: value }));
   
   removeAllChildren(parentClass);
   
-  if(!value) {
+  if (!value) {
     data.forEach(el => createArticleTemplate(el, parentClass));
   } else {
     newArray.forEach(el => createArticleTemplate(el, parentClass));
@@ -72,16 +75,16 @@ function typeFontsText(event, data, parentClass) {
 }
 
 function selectFontSize(event, data, parentClass) {
-  const { target: { value }} = event;
+  const { target: { value } } = event;
   
   removeAllChildren(parentClass);
   data.forEach(el => createArticleTemplate(el, parentClass, `${value}px`));
 }
 
 function changeBg(event) {
-  const { target: { value }} = event;
+  const { target: { value } } = event;
   
-  if(value === 'white') {
+  if (value === 'white') {
     document.documentElement.style.setProperty('--bg-color', '#fff');
     document.documentElement.style.setProperty('--text-color', '#222');
     document.documentElement.style.setProperty('--second-text-color', 'rgba(34, 34, 34, .5)');
@@ -89,6 +92,21 @@ function changeBg(event) {
     document.documentElement.style.setProperty('--bg-color', '#222');
     document.documentElement.style.setProperty('--text-color', '#fff');
     document.documentElement.style.setProperty('--second-text-color', 'rgba(255,255,255, .5)');
+  }
+}
+
+function changeView(event) {
+  const { target: { checked, labels } } = event;
+  const articlesRes = document.querySelector("#articles-res");
+  
+  if (checked) {
+    labels[0].firstChild.classList.remove("fa-list");
+    labels[0].firstChild.classList.add("fa-table");
+    articlesRes.classList.add("grid-table");
+  } else {
+    labels[0].firstChild.classList.remove("fa-table");
+    labels[0].firstChild.classList.add("fa-list");
+    articlesRes.classList.remove("grid-table");
   }
 }
 

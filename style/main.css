@@ -65,7 +65,8 @@ input[value="white"] + label {
   background-color: var(--white-color);
 }
 
-input[name="bgColor"] {
+input[name="bgColor"],
+input[name="view"] {
   display: none;
 }
 
@@ -83,11 +84,26 @@ input[name="bgColor"]:checked + label {
   border: 1px solid var(--danger-color);
 }
 
+input[name="view"] + label {
+  display: inline-block;
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+}
+
+input[name="name"]:checked + label {
+  border: 1px solid var(--danger-color);
+}
+
 .articles-res {
   margin: 2rem;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 4rem;
+}
+
+.grid-table {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 
 .card {
