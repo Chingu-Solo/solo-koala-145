@@ -1,3 +1,13 @@
+window.onscroll = function() {
+  const upBtn = document.querySelector(".upBtn");
+  const scrolled = window.pageYOffset || document.documentElement.scrollTop;
+  if (scrolled > 150) {
+    upBtn.style.display = "block";
+  } else {
+    upBtn.style.display = "none";
+  }
+};
+
 let data = [ ...initialArr ];
 
 const searchFontEl = document.querySelector(".searchFont");
