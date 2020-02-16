@@ -48,13 +48,17 @@
   color: var(--text-color);
 }
 
+.toolbar-refresh {
+  cursor: pointer;
+}
+
 .toolbar-fontsize select {
   font-size: inherit;
   outline: none;
   border: none;
   background-color: inherit;
-  cursor: pointer;
   color: var(--text-color);
+  cursor: pointer;
 }
 
 input[value="black"] + label {

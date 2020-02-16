@@ -15,6 +15,9 @@ radiobgColorBtns.forEach(e => e.addEventListener("change", event => changeBg(eve
 const checkboxView = document.querySelector(".toolbar-view input[name='view']");
 checkboxView.addEventListener("change", event => changeView(event));
 
+const refreshEl = document.querySelector(".toolbar-refresh");
+refreshEl.addEventListener("click", () => refresh(data, ".articles-res"));
+
 data.forEach(el => createArticleTemplate(el, ".articles-res"));
 
 function createArticleTemplate(item, parentClass, textFontSize = `${fontSizeSelectorEl.value}px`) {
@@ -108,6 +111,12 @@ function changeView(event) {
     labels[0].firstChild.classList.add("fa-list");
     articlesRes.classList.remove("grid-table");
   }
+}
+
+function refresh(data, parentClass) {
+  removeAllChildren(parentClass);
+  document.querySelectorAll(".searchInput").forEach(e => e.value = "");
+  data.forEach(el => createArticleTemplate(el, ".articles-res"));
 }
 
 function removeAllChildren(className) {
